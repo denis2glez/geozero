@@ -6,7 +6,7 @@
 -- DATABASE_URL="postgresql://$USER@localhost/postgistest?sslmode=disable"
 -- cargo test --all-features -- --ignored postgis
 
-CREATE EXTENSION postgis;
+CREATE EXTENSION IF NOT EXISTS postgis;
 
 CREATE TABLE point2d (
     fid SERIAL,
