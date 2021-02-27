@@ -1,6 +1,6 @@
 [package]
 name = "geozero-core"
-version = "0.6.1"
+version = "0.6.2"
 authors = ["Pirmin Kalberer <pka@sourcepole.ch>"]
 edition = "2018"
 description = "Zero-Copy reading and writing of geospatial data."
@@ -42,5 +42,7 @@ postgres = "0.17"
 tokio = { version = "0.2", default-features = false, features = ["rt-threaded"] }
 
 [package.metadata.docs.rs]
-all-features = true
-rustc-args = ["--cfg", "docsrs"]
+#all-features = true
+#rustc-args = ["--cfg", "docsrs"]
+# Disable GDAL for docs.rs build, as a workaround for https://github.com/rust-lang/docs.rs/issues/1289
+features = ["geos-lib", "gpkg", "postgis-sqlx", "postgis-postgres"]
